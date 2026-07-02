@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AduaFacil - Prototipo Inteligente Módulo 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 min-h-screen flex">
+
+    <aside class="w-64 bg-white border-r border-gray-200 flex flex-col justify-between hidden md:flex shadow-sm">
+        <div class="p-6">
+            <div class="flex items-center space-x-3 text-emerald-600 font-bold text-xl mb-8">
+                <i class="fa-solid fa-chart-line text-2xl"></i>
+                <div>
+                    <span class="text-blue-900">Adua</span><span class="text-emerald-500">Facil</span>
+                    <p class="text-[9px] text-gray-400 font-normal tracking-tight">Asistente Digital Aduanero</p>
+                </div>
+            </div>
+            
+            <nav class="space-y-1">
+                <a href="#" class="flex items-center space-x-3 px-4 py-2.5 text-gray-600 rounded-lg hover:bg-gray-50 text-sm">
+                    <i class="fa-solid fa-table-columns w-5 text-gray-400"></i> <span>Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-2.5 bg-blue-50 text-blue-700 font-medium rounded-lg text-sm">
+                    <i class="fa-solid fa-robot w-5 text-blue-600"></i> <span>Asistente</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-2.5 text-gray-600 rounded-lg hover:bg-gray-50 text-sm">
+                    <i class="fa-solid fa-shield-halved w-5 text-gray-400"></i> <span>Regulaciones</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-2.5 text-gray-600 rounded-lg hover:bg-gray-50 text-sm">
+                    <i class="fa-solid fa-handshake w-5 text-gray-400"></i> <span>Trámites T-MEC</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-2.5 text-gray-600 rounded-lg hover:bg-gray-50 text-sm">
+                    <i class="fa-solid fa-clock-rotate-left w-5 text-gray-400"></i> <span>Historial</span>
+                </a>
+            </nav>
+        </div>
+        
+        <div class="p-4 border-t border-gray-100 flex items-center space-x-3">
+            <div class="w-9 h-9 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-xs">PyME</div>
+            <div>
+                <p class="text-xs font-semibold text-gray-700">Mi Cuenta</p>
+                <p class="text-[10px] text-gray-400">Exportador Básico</p>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col min-h-screen">
+        
+        <header class="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-8 shadow-xs">
+            <div class="flex items-center space-x-6 text-xs font-medium tracking-wide text-gray-400 uppercase">
+                <span class="text-blue-600 border-b-2 border-blue-600 py-4 font-bold flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-check text-emerald-500"></i> 1. Identificación
+                </span>
+                <span class="flex items-center gap-1.5"><i class="fa-regular fa-circle"></i> 2. Requisitos</span>
+                <span class="flex items-center gap-1.5"><i class="fa-regular fa-circle"></i> 3. T-MEC</span>
+                <span class="flex items-center gap-1.5"><i class="fa-regular fa-circle"></i> 4. Documentos</span>
+            </div>
+        </header>
+
+        <div class="flex-1 grid grid-cols-1 lg:grid-cols-3 p-6 gap-6">
+            
+            <div class="lg:col-span-2 space-y-6">
+                
+                <div class="bg-white rounded-xl shadow-xs border border-gray-200 p-6">
+                    <h2 class="text-lg font-bold text-gray-800 mb-1">PASO 1: Identificación de la Mercancía</h2>
+                    <p class="text-xs text-gray-500 mb-4">Escribe "Salsa", "Mezcal" o "Aguacate" para probar el funcionamiento del asistente.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-600 mb-1.5">Nombre comercial o producto</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                                </span>
+                                <input type="text" id="product-input" value="Salsa de chile habanero" 
+                                    class="w-full pl-9 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm bg-gray-50 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800">
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 rounded-lg p-4 border border-slate-200/60">
+                            <p class="text-xs font-bold text-slate-700 mb-3 flex items-center gap-1.5">
+                                <i class="fa-solid fa-wand-magic-sparkles text-blue-500"></i> Asistente Inteligente
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div>
+                                    <label class="block text-[11px] font-medium text-gray-500 mb-1">¿Contiene alcohol?</label>
+                                    <select id="filter-alcohol" class="w-full text-xs border border-gray-300 rounded p-1.5 bg-white"><option>No</option><option>Sí</option></select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-medium text-gray-500 mb-1">¿Estado?</label>
+                                    <select id="filter-estado" class="w-full text-xs border border-gray-300 rounded p-1.5 bg-white"><option>Procesado</option><option>Fresco</option></select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-medium text-gray-500 mb-1">Tipo de envase</label>
+                                    <select class="w-full text-xs border border-gray-300 rounded p-1.5 bg-white"><option>Al por menor</option><option>A granel</option></select>
+                                </div>
+                            </div>
+                            <button onclick="analizarProducto()" class="mt-3 w-full bg-blue-600 text-white font-semibold text-xs py-2 rounded shadow-xs hover:bg-blue-700 transition">
+                                <i class="fa-solid fa-gear fa-spin mr-1 hidden" id="loading-icon"></i> Analizar Producto
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 px-1">Sugerencia de Fracción Arancelaria (TIGIE)</h3>
+                    
+                    <div class="bg-white rounded-xl shadow-xs border-2 border-emerald-500 p-5 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> Recomendada por IA
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div id="fraccion-badge" class="p-2.5 bg-emerald-50 rounded-lg text-emerald-600 text-lg font-bold">2103.90.99</div>
+                            <div class="flex-1">
+                                <h4 class="text-sm font-bold text-gray-800">Fracción Encontrada</h4>
+                                <p id="fraccion-descripcion" class="text-xs text-gray-600 mt-1 leading-relaxed">
+                                    Los demás condimentos y sazonadores compuestos; harinas de mostaza y mostaza preparada.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between">
+                                    <span id="confianza-badge" class="text-xs text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                                        Confianza: Alta (95%)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-slate-900 text-white rounded-xl shadow-md p-6 border border-slate-800 flex flex-col justify-between h-full min-h-[450px]">
+                    <div>
+                        <div class="border-b border-slate-700 pb-4 mb-4">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Resumen Ejecutivo de Exportación</span>
+                            <h3 id="fraccion-sidebar" class="text-2xl font-black text-emerald-400 mt-0.5">2103.90.99</h3>
+                        </div>
+
+                        <div class="mb-5">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5 mb-2">
+                                <i class="fa-solid fa-percent text-blue-400"></i> 1. Impuestos / Aranceles
+                            </h4>
+                            <ul id="aranceles-list" class="text-xs space-y-1 text-slate-400 pl-5 list-disc">
+                                <li>General de Exportación: <span class="text-white font-medium">Exento</span></li>
+                                <li>Arancel de Importación (EE.UU.): <span class="text-white font-medium">8%</span></li>
+                                <li>Con Beneficio T-MEC: <span class="text-emerald-400 font-bold">0% arancel</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-5">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5 mb-2">
+                                <i class="fa-solid fa-scroll text-amber-400"></i> 2. Regulaciones (RRNA)
+                            </h4>
+                            <ul id="rrna-list" class="text-xs space-y-2 text-slate-400 pl-5 list-disc">
+                                <li><span class="text-white font-medium">NOM-051-SCFI/SSA1:</span> Etiquetado comercial y sanitario.</li>
+                                <li><span class="text-white font-medium">FDA (EE.UU.):</span> Registro de instalaciones alimentarias.</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5 mb-2">
+                                <i class="fa-solid fa-folder-open text-purple-400"></i> 3. Documentos Exigidos
+                            </h4>
+                            <ul id="docs-list" class="text-xs space-y-1 text-slate-400 pl-5 list-disc">
+                                <li>Factura Comercial con complemento de Comercio Exterior.</li>
+                                <li>Certificado de Origen T-MEC.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-emerald-500 text-slate-900 font-bold text-sm py-3 rounded-lg shadow-sm hover:bg-emerald-400 transition flex items-center justify-center gap-2">
+                        <span>Proceder a Requisitos</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Base de datos simulada según los requerimientos aduaneros
+        const productosDB = {
+            salsa: {
+                fraccion: "2103.90.99",
+                descripcion: "Los demás condimentos y sazonadores compuestos; harinas de mostaza y mostaza preparada. Ideal para salsas embotelladas listas para consumo.",
+                confianza: "Confianza: Alta (95%)",
+                aranceles: [
+                    "General de Exportación: <span class='text-white font-medium'>Exento</span>",
+                    "Arancel de Importación EE.UU: <span class='text-white font-medium'>8%</span>",
+                    "Preferencia T-MEC: <span class='text-emerald-400 font-bold'>0% arancel</span> (Requiere Certificado)"
+                ],
+                rrna: [
+                    "<span class='text-white font-medium'>NOM-051-SCFI/SSA1:</span> Especificaciones generales de etiquetado para alimentos.",
+                    "<span class='text-white font-medium'>FDA (EE.UU.):</span> Notificación previa de importación de alimentos (Prior Notice)."
+                ],
+                docs: [
+                    "Factura Comercial (con complemento de comercio exterior).",
+                    "Certificado de Origen T-MEC.",
+                    "Carta de instrucciones al Agente Aduanal."
+                ]
+            },
+            mezcal: {
+                fraccion: "2208.90.05",
+                descripcion: "Mezcal. Bebidas alcohólicas destiladas obtenidas de las cabezas de agave maduras, cocidas y fermentadas.",
+                confianza: "Confianza: Total (99%)",
+                aranceles: [
+                    "Impuesto de Exportación: <span class='text-white font-medium'>Exento</span>",
+                    "Arancel de Importación destino: <span class='text-white font-medium'>Depende del volumen</span>",
+                    "Impuestos internos: <span class='text-amber-400 font-medium'>Sujeto a IEPS en México</span> antes de salir."
+                ],
+                rrna: [
+                    "<span class='text-white font-medium'>NOM-070-SCFI-2016:</span> Certificación de autenticidad del Mezcal (CRM).",
+                    "<span class='text-white font-medium'>SAT:</span> Adhesión de marbetes físicos o electrónicos para bebidas alcohólicas."
+                ],
+                docs: [
+                    "Certificado de Exportación emitido por el Consejo Regulador del Mezcal.",
+                    "Inscripción en el Padrón de Exportadores Sectorial (Sector 8: Bebidas Alcohólicas).",
+                    "Pedimento aduanal consolidado."
+                ]
+            },
+            aguacate: {
+                fraccion: "0804.40.01",
+                descripcion: "Aguacates (paltas), frescos o secos. Clasificación directa para frutos agrícolas sin procesar.",
+                confianza: "Confianza: Alta (92%)",
+                aranceles: [
+                    "Arancel de Exportación: <span class='text-white font-medium'>Exento</span>",
+                    "Tratados internacionales: <span class='text-emerald-400 font-bold'>0% bajo T-MEC</span>",
+                    "Cupos especiales: <span class='text-white font-medium'>Sin restricciones de cupo actuales</span>."
+                ],
+                rrna: [
+                    "<span class='text-white font-medium'>SENASICA / SAGARPA:</span> Certificado Fitosanitario de Movilización Nacional e Internacional.",
+                    "<span class='text-white font-medium'>USDA-APHIS (EE.UU.):</span> Inspección de sanidad vegetal en huertos certificados."
+                ],
+                docs: [
+                    "Certificado Fitosanitario de Exportación.",
+                    "Manifiesto de carga limpia.",
+                    "Certificado de cumplimiento de calidad comercial."
+                ]
+            }
+        };
+
+        function analizarProducto() {
+            // Obtener lo que escribió el usuario
+            const textoBusqueda = document.getElementById('product-input').value.toLowerCase();
+            let key = 'salsa'; // Por defecto
+
+            // Verificar palabras clave para cambiar el estado de la página
+            if (textoBusqueda.includes('mezcal') || textoBusqueda.includes('alcohol')) {
+                key = 'mezcal';
+                document.getElementById('filter-alcohol').value = 'Sí';
+                document.getElementById('filter-estado').value = 'Procesado';
+            } else if (textoBusqueda.includes('aguacate') || textoBusqueda.includes('fresco') || textoBusqueda.includes('palta')) {
+                key = 'aguacate';
+                document.getElementById('filter-alcohol').value = 'No';
+                document.getElementById('filter-estado').value = 'Fresco';
+            } else {
+                key = 'salsa';
+                document.getElementById('filter-alcohol').value = 'No';
+                document.getElementById('filter-estado').value = 'Procesado';
+            }
+
+            const data = productosDB[key];
+
+            // 1. Cambiar los textos de las fracciones en pantalla
+            document.getElementById('fraccion-badge').innerText = data.fraccion;
+            document.getElementById('fraccion-sidebar').innerText = data.fraccion;
+            document.getElementById('fraccion-descripcion').innerText = data.descripcion;
+            document.getElementById('confianza-badge').innerText = data.confianza;
+
+            // 2. Cambiar listas de Aranceles
+            const arancelesList = document.getElementById('aranceles-list');
+            arancelesList.innerHTML = '';
+            data.aranceles.forEach(item => {
+                arancelesList.innerHTML += `<li>${item}</li>`;
+            });
+
+            // 3. Cambiar listas de RRNA
+            const rrnaList = document.getElementById('rrna-list');
+            rrnaList.innerHTML = '';
+            data.rrna.forEach(item => {
+                rrnaList.innerHTML += `<li>${item}</li>`;
+            });
+
+            // 4. Cambiar lista de Documentos
+            const docsList = document.getElementById('docs-list');
+            docsList.innerHTML = '';
+            data.docs.forEach(item => {
+                docsList.innerHTML += `<li>${item}</li>`;
+            });
+        }
+    </script>
+</body>
+</html>
